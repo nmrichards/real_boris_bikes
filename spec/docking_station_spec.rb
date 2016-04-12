@@ -11,6 +11,10 @@ describe DockingStation do
 		new_bike.working?.should be true
 	end
 
+	it "docks a bike" do
+		expect(subject).to respond_to(:dock_bike)
+	end
+
 	#testing
 
 	# one liner syntax:
