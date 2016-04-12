@@ -1,4 +1,4 @@
-require './lib/bike'
+#require './lib/bike'
 
 class DockingStation
  	attr_reader :docked_bikes
@@ -11,8 +11,12 @@ class DockingStation
 		Bike.new
 	end
 
-	def dock_bike(bike)
-
+	def dock(bike)
+		@bike = bike 
 	end
+
+	def bike
+		@bike 
+	end	
 
 end
