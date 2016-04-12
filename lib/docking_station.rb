@@ -1,22 +1,17 @@
 #require './lib/bike'
 
 class DockingStation
- 	attr_reader :docked_bikes
-
-	def initialize
-		@docked_bikes = []
-	end
-
 	def release_bike
-		Bike.new
+    fail 'No bikes available' unless @bike
+		@bike
 	end
 
 	def dock(bike)
-		@bike = bike 
+		@bike = bike
 	end
 
 	def bike
-		@bike 
-	end	
+		@bike
+	end
 
 end
