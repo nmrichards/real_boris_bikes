@@ -1,5 +1,4 @@
 require "docking_station"
-require "bike"
 
 describe DockingStation do
 	let(:bike) { double :bike, broken?: false }
@@ -13,10 +12,16 @@ describe DockingStation do
 		expect(subject.dock(bike)).to include bike
 	end
 
+	it "returns broken bikes" do
+		allow(bike).to receive(:broken?).and_return(true)
+		subject.dock(bike)
+		expect(subject.bike_broken).to include bike
+	end
+
 	describe '#release_bike' do
 
 		it "responds to release_bike" do
-		expect(subject).to respond_to(:release_bike)
+			expect(subject).to respond_to(:release_bike)
 		end
 
 		it 'releases a bikes' do
